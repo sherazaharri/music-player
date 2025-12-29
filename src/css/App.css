@@ -1,0 +1,14 @@
+header {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 100%;
+  gap: 30vw;
+
+  background-color: aliceblue;
+}
+
+header p{
+  font-size: 1.5vw;
+  color: black;
+}

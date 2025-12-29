@@ -1,0 +1,107 @@
+.musicPlayer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color:aliceblue;
+    margin-top: 6vh;
+    gap:7px;
+}
+
+
+/*Song Display*/
+.currentSong{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.currentSong img{
+    width: 20vw;
+    height: 20vw;
+}
+
+.currentSong h1{
+    margin: 0;
+    padding-top: 10px;
+}
+
+
+/*Slider*/
+.sliderControl{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 130%;
+    gap: 10px;
+}
+
+.seekSlider{
+    width: 30%;
+    
+    -webkit-appearance: none; /*Removes default browser style*/
+    -moz-appearance: none; /*Removes default browser style*/
+    appearance: none; /*Removes default browser style*/
+    height: 5px;
+    background: rgb(255, 255, 255);
+    opacity: 0.7;
+    -webkit-transition: .2s; /*smoothly animates opacity changes*/
+    transition: opacity .2s; /*smoothly animates opacity changes*/
+}
+
+.seekSlider::-webkit-slider-thumb{
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    background: purple;
+    border-radius: 50%;
+    cursor: pointer;
+
+}
+
+.seekSlider:hover{
+    opacity: 1.0;
+}
+
+/*Buttons*/
+.musicControl{
+    display:flex;
+    flex-direction: row;
+    gap: 50px;
+    padding-top: 4vh;
+    
+}
+
+.musicControl button{
+    background-color: transparent;
+    border-color: transparent;
+}
+
+.controlButton{
+    width: 3vw;
+    height: 3vw;
+}
+
+.playButton{
+    width: 5vw;
+    height: 5vw;
+}
+
+/*Volume*/
+.volumeControl{
+    width: 20vw;
+    display: flex;
+    flex-direction: row;
+    gap: 2px;   
+}
+
+.volumeControl button{
+    background-color: transparent;
+    border-color: transparent;
+}
+
+.volumeSlider{
+    width: 100%;
+}
