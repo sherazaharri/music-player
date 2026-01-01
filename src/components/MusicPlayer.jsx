@@ -115,6 +115,10 @@ function MusicPlayer() {
         }
     }
 
+    const handleAutoNext = () => {
+        setSongIndex(prev => prev+1);
+    }
+
     /*volume control functions*/
     function handleVolumeChange(x){
         const audio = audioRef.current;
@@ -153,7 +157,7 @@ function MusicPlayer() {
             </div>
 
             <div className='musicControl'>                                                 {/*onLoadedMetadata fires the event within once the metadata is loaded */}
-                <audio ref={audioRef} src={currentSong.audio} onCanPlay={afterAudioLoaded} onLoadedMetadata={handleLoadedMetadata}></audio> {/*ref is for being able to access this DOM element to use within our script*/}
+                <audio ref={audioRef} src={currentSong.audio} onCanPlay={afterAudioLoaded} onLoadedMetadata={handleLoadedMetadata} onEnded={handleAutoNext}></audio> {/*ref is for being able to access this DOM element to use within our script*/}
                 <button onClick={handleGoPrev}>
                     <img src={prev} className='controlButton'/>
                 </button>

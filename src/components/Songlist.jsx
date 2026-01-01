@@ -26,13 +26,10 @@ function Songlist(){
                             <div className='songInfo'>
                                 <h1>{playlist.song}</h1>
                                 <p>{playlist.artist}</p>
-                            </div>
-                            
+                            </div> 
                         </button>
                 )
-            }
-            <p>Current Index: {songIndex}</p>
-                       
+            }                       
         </div>
     )
 }
