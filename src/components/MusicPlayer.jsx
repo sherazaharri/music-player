@@ -11,8 +11,11 @@ import mute from '../assets/buttons/mute.png'
 
 import { useRef, useState, useEffect } from 'react';
 
+import React, {useContext} from 'react'
+import {SongIndexContext} from '../main.jsx'
+
 function MusicPlayer() {
-    const [songIndex, setSongIndex] = useState(0);
+    const {songIndex, setSongIndex} = useContext(SongIndexContext);
     const currentSong = playlist[songIndex];
 
     const [isPlaying, setIsPlaying] = useState(false);
@@ -106,6 +109,12 @@ function MusicPlayer() {
         }
     }
 
+    const afterAudioLoaded = () => {
+        if(isPlaying){
+            audioRef.current.play();
+        }
+    }
+
     /*volume control functions*/
     function handleVolumeChange(x){
         const audio = audioRef.current;
@@ -115,9 +124,13 @@ function MusicPlayer() {
         audio.volume = x.target.value;
     }
 
-    function handleMuteButton(){
-        const audio = audioRef.current;
+    function changeIsPlaying(){ /*set state placed seperately to avoid asynchronous updates */
         setIsMute(prev => !prev);
+    }
+
+    useEffect(() => { /*handles muting and unmuting the audio*/
+        const audio = audioRef.current;
+        
         
         if(isMute == true){
             setCurrentVolume(0.0);
@@ -128,8 +141,7 @@ function MusicPlayer() {
             audio.volume = tempVolume;
             setMuteButton(volume);
         }
-
-    }
+    }, [isMute])
 
     return(
         <div className='musicPlayer'>
@@ -140,8 +152,8 @@ function MusicPlayer() {
                 <p>{currentSong.artist}</p>
             </div>
 
-            <div className='musicControl'>                                     {/*onLoadedMetadata fires the event within once the metadata is loaded */}
-                <audio ref={audioRef} src={currentSong.audio} onLoadedMetadata={handleLoadedMetadata}></audio> {/*ref is for being able to access this DOM element to use within our script*/}
+            <div className='musicControl'>                                                 {/*onLoadedMetadata fires the event within once the metadata is loaded */}
+                <audio ref={audioRef} src={currentSong.audio} onCanPlay={afterAudioLoaded} onLoadedMetadata={handleLoadedMetadata}></audio> {/*ref is for being able to access this DOM element to use within our script*/}
                 <button onClick={handleGoPrev}>
                     <img src={prev} className='controlButton'/>
                 </button>
@@ -160,7 +172,7 @@ function MusicPlayer() {
             </div>
             
             <div className='volumeControl'>
-                <button onClick={handleMuteButton}>
+                <button onClick={changeIsPlaying}>
                     <img src={muteButton} className='controlButton'></img>
                 </button>
                 <input className='volumeSlider' type='range' min='0.0' max='1.0' step='0.05' value={currentVolume} onChange={handleVolumeChange}/>

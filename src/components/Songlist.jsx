@@ -1,10 +1,13 @@
 import playlist from '../songs/songs.js'
 import '../css/Songlist.css'
 
-import { useRef, useState, useEffect } from 'react';
+import { useRef, useState, useEffect, createContext } from 'react';
+
+import React, {useContext} from 'react'
+import {SongIndexContext} from '../main.jsx'
 
 function Songlist(){
-    const [songIndex, setSongIndex] = useState(0);
+    const {songIndex, setSongIndex} = useContext(SongIndexContext);
     
     const handleChangeSongButton = (playlist) => {
         setSongIndex(playlist.id);
@@ -29,7 +32,7 @@ function Songlist(){
                 )
             }
             <p>Current Index: {songIndex}</p>
-            
+                       
         </div>
     )
 }
