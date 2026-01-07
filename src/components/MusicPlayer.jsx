@@ -116,7 +116,7 @@ function MusicPlayer() {
     }
 
     const handleAutoNext = () => {
-        setSongIndex(prev => prev+1);
+        setSongIndex(prev => (prev+1) % playlist.length);
     }
 
     /*volume control functions*/

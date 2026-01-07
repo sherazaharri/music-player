@@ -7,7 +7,12 @@
   display: flex;
   flex-direction: row;
   justify-content: flex-end;
+  width: 100vw;
   gap: 10px;
+}
+
+.tabClosed{
+  gap: 15vw;
 }
 
 .musicPlayer{
@@ -23,6 +28,6 @@
 
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+  background-color: #1b0d1b;
 }
 

@@ -1,3 +1,18 @@
+.fullTab{
+    display: flex;
+    flex: row;
+}
+
+.playlistCollapse{
+    background: none;
+    border: none;
+}
+
+.playlistCollapse img{
+    width: 50px;
+    height: 100px;
+}
+
 .fullList{
     display: flex;
     flex-direction: column;
@@ -5,6 +20,11 @@
     width: 40vw;
     background-color: black;
     overflow: auto;
+}
+
+.playlistHead{
+    padding-top: 5px;
+    padding-left: 10px;
 }
 
 .songButton{
