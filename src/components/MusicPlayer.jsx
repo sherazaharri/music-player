@@ -13,10 +13,13 @@ import { useRef, useState, useEffect } from 'react';
 
 import React, {useContext} from 'react'
 import {SongIndexContext} from '../main.jsx'
+import { SidebarCollapseContext } from '../main.jsx'
 
 function MusicPlayer() {
     const {songIndex, setSongIndex} = useContext(SongIndexContext);
     const currentSong = playlist[songIndex];
+
+    const {isOpen, setIsOpen} = useContext(SidebarCollapseContext);
 
     const [isPlaying, setIsPlaying] = useState(false);
     const [currentTime, setCurrentTime] = useState(0);
@@ -148,38 +151,38 @@ function MusicPlayer() {
     }, [isMute])
 
     return(
-        <div className='musicPlayer'>
+        <div className={'musicPlayer ' + (!isOpen ? 'tabClosedPlayer' : '')}>
             <p>Currently Playing:</p>
-            <div className='currentSong'>
+            <div className={'currentSong ' + (!isOpen ? 'tabClosedSong' : '')}>
                 <img src={currentSong.img}/>
                 <h1>{currentSong.song}</h1>
                 <p>{currentSong.artist}</p>
             </div>
 
-            <div className='musicControl'>                                                 {/*onLoadedMetadata fires the event within once the metadata is loaded */}
+            <div className={'musicControl ' + (!isOpen ? 'tabClosedControl' : '')}>                                                 {/*onLoadedMetadata fires the event within once the metadata is loaded */}
                 <audio ref={audioRef} src={currentSong.audio} onCanPlay={afterAudioLoaded} onLoadedMetadata={handleLoadedMetadata} onEnded={handleAutoNext}></audio> {/*ref is for being able to access this DOM element to use within our script*/}
                 <button onClick={handleGoPrev}>
-                    <img src={prev} className='controlButton'/>
+                    <img src={prev} className={'controlButton ' + (!isOpen ? 'tabClosedButtonControl' : '')}/>
                 </button>
                 <button onClick={handleButtonClick}>
-                    <img src={isPlaying ? pause : play} className='playButton'/> {/*simple way of checking boolean*/}
+                    <img src={isPlaying ? pause : play} className={'playButton ' + (!isOpen ? 'tabClosedButtonPlay' : '')}/> {/*simple way of checking boolean*/}
                 </button>
                 <button onClick={handleGoNext}>
-                    <img src={next} className='controlButton'/>
+                    <img src={next} className={'controlButton ' + (!isOpen ? 'tabClosedButtonControl' : '')}/>
                 </button>
             </div>
 
-            <div className='sliderControl'>
+            <div className={'sliderControl ' + (!isOpen ? 'tabClosedSlider' : '')}>
                 <p>{formatDuration(currentTime)}</p>
-                <input type="range" min="0" max={duration || 0} step="0.01" value={currentTime} className="seekSlider" onChange={handleSeek}/> {/*max is using an ifelse statement*/}
+                <input type="range" min="0" max={duration || 0} step="0.01" value={currentTime} className={'seekSlider ' + (!isOpen ? 'tabClosedSeekSlider' : '')} onChange={handleSeek}/> {/*max is using an ifelse statement*/}
                 <p>{formatDuration(duration)}</p>
             </div>
             
-            <div className='volumeControl'>
+            <div className={'volumeControl ' + (!isOpen ? 'tabClosedVolume' : '')}>
                 <button onClick={changeIsPlaying}>
-                    <img src={muteButton} className='controlButton'></img>
+                    <img src={muteButton} className={'controlButton ' + (!isOpen ? 'tabClosedButtonControl' : '')}></img>
                 </button>
-                <input className='volumeSlider' type='range' min='0.0' max='1.0' step='0.05' value={currentVolume} onChange={handleVolumeChange}/>
+                <input className={'volumeSlider ' + (!isOpen ? 'tabClosedVolumeSlider' : '')} type='range' min='0.0' max='1.0' step='0.05' value={currentVolume} onChange={handleVolumeChange}/>
             </div>            
         </div>
     )

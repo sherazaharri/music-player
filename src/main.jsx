@@ -15,16 +15,12 @@ function Root(){
   const [isOpen, setIsOpen] = useState(true);
   const screenRef = useRef(null);
 
-  useEffect(() => {
-    screenRef.current.classList.toggle('tabClosed', !isOpen);
-  }, [isOpen])
-
   return(
-    <div className='playScreen' ref={screenRef}>
+    <div className={'playScreen ' + (!isOpen ? 'tabClosed' : '')}>
       <SongIndexContext.Provider value = {{songIndex, setSongIndex}}>
-        <MusicPlayer className='musicPlayer'></MusicPlayer>
         <SidebarCollapseContext.Provider value = {{isOpen, setIsOpen}}>
-          <Songlist></Songlist>
+          <MusicPlayer className='musicPlayer'></MusicPlayer>
+          <Songlist className='songList'></Songlist>
         </SidebarCollapseContext.Provider>
       </SongIndexContext.Provider> 
     </div>

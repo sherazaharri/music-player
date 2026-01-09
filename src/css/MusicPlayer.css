@@ -3,11 +3,14 @@
     flex-direction: column;
     align-items: center;
     color:aliceblue;
-    margin-top: 6vh;
     gap:7px;
 }
 
+.musicPlayer p {
+    font-size: clamp(0.875rem, 1.5vw, 1.213rem);
+}
 
+/***   SIDEBAR OPEN   ***/ 
 /*Song Display*/
 .currentSong{
     display: flex;
@@ -16,13 +19,15 @@
 }
 
 .currentSong img{
-    width: 20vw;
-    height: 20vw;
+    width: clamp(186px, 20vw, 258px);
+    height: clamp(186px, 20vw, 258px);
 }
 
 .currentSong h1{
     margin: 0;
     padding-top: 10px;
+    font-size: clamp(27.9px, 3vw, 38.7px);
+    text-align: center;
 }
 
 
@@ -37,40 +42,60 @@
 }
 
 .seekSlider{
-    width: 30%;
-    height: 5px;
-    
+    width: clamp(279px, 30vw, 388.2px);
+
     -webkit-appearance: none; /*Removes default browser style*/
     -moz-appearance: none; /*Removes default browser style*/
     appearance: none; /*Removes default browser style*/
-    background: rgb(255, 255, 255);
-    opacity: 0.7;
-    -webkit-transition: .2s; /*smoothly animates opacity changes*/
-    transition: opacity .2s; /*smoothly animates opacity changes*/
+    background: none;
+    cursor: pointer;
+}
+
+.seekSlider::-webkit-slider-runnable-track{
+    height: clamp(4.65px, 0.5vw, 6.47px);
+
+    background-color: aliceblue;
+    opacity: 75%;
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+.seekSlider::-moz-range-track{
+    height: clamp(4.65px, 0.5vw, 6.47px);
+
+    background-color: aliceblue;
+    opacity: 75%;
+    border-radius: 20px;
 }
 
 .seekSlider::-webkit-slider-thumb{
     -webkit-appearance: none;
     -moz-appearance: none;
     appearance: none;
-    width: 20px;
-    height: 20px;
-    background: purple;
-    border-radius: 50%;
-    cursor: pointer;
 
+    background-color: white;
+    width: clamp(20px, 2vw, 27px);
+    height: clamp(20px, 2vw, 27px);
+    margin-top: clamp(-8px, 0.8vw, -10px);
+    border-radius: 50%;
+    border: 3px solid #9b4ba7;
 }
 
-.seekSlider:hover{
-    opacity: 1.0;
+.seekSlider::-moz-range-thumb{
+    background-color: purple;
+    width: 20px;
+    height: 20px;
+    margin-top: -0.8vw;
+    border-radius: 50%;
+    border: 1px solid black;
 }
 
 /*Buttons*/
 .musicControl{
     display:flex;
     flex-direction: row;
-    gap: 50px;
-    padding-top: 4vh;
+    gap: clamp(37.2px, 4vw, 51.6px);
+    padding-top: 1vw;
     
 }
 
@@ -80,28 +105,131 @@
 }
 
 .controlButton{
-    width: 3vw;
-    height: 3vw;
+    width: clamp(27.9px, 3vw, 38.81px);
+    height: clamp(27.9px, 3vw, 38.81px);
+    cursor: pointer;
 }
 
 .playButton{
-    width: 5vw;
-    height: 5vw;
+    width: clamp(46.5px, 5vw, 64.7px);
+    height: clamp(46.5px, 5vw, 64.7px);
+    cursor: pointer;
 }
 
 /*Volume*/
 .volumeControl{
-    width: 20vw;
     display: flex;
     flex-direction: row;
-    gap: 2px;   
+    gap: 0.5vw;   
 }
 
 .volumeControl button{
     background-color: transparent;
     border-color: transparent;
+    cursor: pointer;
 }
 
 .volumeSlider{
-    width: 100%;
+    width: clamp(139.5px, 15vw, 193.5px);
+
+    -webkit-appearance: none; /*Removes default browser style*/
+    -moz-appearance: none; /*Removes default browser style*/
+    appearance: none; /*Removes default browser style*/
+    background: none;
+    cursor: pointer;
 }
+
+.volumeSlider::-webkit-slider-runnable-track{
+    height: clamp(2px, 0.5vw, 4px);
+
+    background-color: rgb(115, 115, 115);
+    opacity: 75%;
+    border-radius: 20px;
+}
+
+.volumeSlider::-webkit-slider-thumb{
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+
+    background-color: rgb(195, 195, 195);
+    width: clamp(10px, 1.2vw, 16px);
+    height: clamp(10px, 1.2vw, 16px);
+    margin-top: clamp(-6px, -0.5vw, -3px);
+    border-radius: 50%;
+}
+
+
+
+@media (min-height: 700px){
+    /***   SIDEBAR CLOSED   ***/ 
+    /*Song Display*/
+    .tabClosedPlayer p{
+        font-size: clam(18.24px, 2vw, 21.84px);
+    }
+
+    .tabClosedSong img{
+        width: clamp(274px, 30vw, 327px);
+        height: clamp(274px, 30vw, 327px);
+    }
+
+    .tabClosedSong h1{
+        font-size: clamp(36.48px, 4vw, 43.86px);
+    }
+
+    /*Slider*/
+    .tabClosedSeekSlider{
+        width: clamp(364.8px, 40vw, 436.8px);
+    }
+
+    .tabClosedSeekSlider::-webkit-slider-runnable-track{
+        height: clamp(7.29px, 0.8vw, 8.73px);
+    }
+
+    .tabClosedSeekSlider::-moz-range-track{
+        height: clamp(7.29px, 0.8vw, 8.73px);
+    }
+
+    .tabClosedSeekSlider::-webkit-slider-thumb{
+        width: clamp(23px, 2.5vw, 28px); 
+        height: clamp(23px, 2.5vw, 28px);
+        margin-top: clamp(-10px, 0.8vw, -8px); /*-8px */
+    }
+
+    /*Buttons*/
+    .tabClosedControl{
+        gap: clamp(54.72px, 6vw, 65.52px);
+    }
+
+    .tabClosedButtonControl{
+        width: clamp(36.48px, 4vw, 43.68px);
+        height: clamp(36.48px, 4vw, 43.68px);
+    }
+
+    .tabClosedButtonPlay{
+        width: clamp(63.84px ,7vw, 78.4px);
+        height: clamp(63.84px ,7vw, 78.4px);
+    }
+
+    /*Volume*/
+    .tabClosedVolumeSlider{
+        width: clamp(227px, 25vw, 273px);
+    }
+
+    .tabClosedVolumeSlider::-webkit-slider-runnable-track{
+        height: clamp(4px, 0.5vw, 6px);
+    }
+
+    .tabClosedVolumeSlider::-webkit-slider-thumb{
+        width: clamp(14px, 1.5vw, 17px); /*17px*/
+        height: clamp(14px, 1.5vw, 17px);
+        margin-top: clamp(-6px, 0.5vw, -5px); /*-5px*/
+    }
+}
+
+
+
+
+
+
+
