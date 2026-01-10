@@ -238,12 +238,35 @@
 }
 
 @media(max-width: 500px) and (min-height: 700px){
+    .musicPlayer p {
+        font-size: 4vw;
+    }
+
     .currentSong h1 {
-        font-size: 38.7px;
+        font-size: max(24px, 7vw);
+    }
+
+    .currentSong img{
+        width: max(50vw, 180px);
+        height: max(50vw, 180px);
     }
 
     .volumeSlider{
         width: 35vw;
+    }
+
+    .controlButton{
+        width: 9vw;
+        height: 9vw;
+    }
+
+    .playButton{
+        width: 12vw;
+        height: 12vw;
+    }
+
+    .musicControl{
+        gap: 10vw;
     }
 }
 
