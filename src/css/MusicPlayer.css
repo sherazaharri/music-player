@@ -229,11 +229,29 @@
 
 @media(max-width: 500px){
     .currentSong h1 {
-        font-size: 6vw;
+        font-size: max(6vw, 20px);
+        width: 100%;
+        max-width: 80vw;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
     }
 
     .volumeSlider{
         width: 30vw;
+    }
+
+    .musicControl{
+        gap: 8vw;
+    }
+    .controlButton{
+        width: max(5vw, 19.4px);
+        height: max(5vw, 19.4px);
+    }
+
+    .playButton{
+        width: max(9vw, 34.91px);
+        height: max(9vw, 34.91px);
     }
 }
 
@@ -244,6 +262,11 @@
 
     .currentSong h1 {
         font-size: max(24px, 7vw);
+        width: 100%;
+        max-width: 80vw;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
     }
 
     .currentSong img{
@@ -255,6 +278,10 @@
         width: 35vw;
     }
 
+    .musicControl{
+        gap: 10vw;
+    }
+
     .controlButton{
         width: 9vw;
         height: 9vw;
@@ -263,11 +290,7 @@
     .playButton{
         width: 12vw;
         height: 12vw;
-    }
-
-    .musicControl{
-        gap: 10vw;
-    }
+    }   
 }
 
 

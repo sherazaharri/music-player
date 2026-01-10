@@ -78,6 +78,11 @@
 }
 
 @media(max-width:500px){
+    .playlistCollapse img{
+        width: max(34.2px, 9vw);
+        height: max(70.3px, 18.5vw);
+    }
+    
     .fullList{
         width: 80vw; /*280px*/
     }
