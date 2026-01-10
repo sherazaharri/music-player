@@ -23,7 +23,7 @@ function Songlist(){
     }
 
     return(
-        <div className='fullTab'>
+        <div className={'fullTab ' + (!isOpen ? '' : 'mobileOpenedTab')}>
             <button className='playlistCollapse' onClick={handleCollapse}>
                 <img src={isOpen ? close : open}></img>
             </button>

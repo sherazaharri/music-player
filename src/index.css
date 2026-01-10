@@ -37,3 +37,28 @@
   background-color: #341938bd;
 }
 
+@media(max-width: 700px){
+  .playScreen{
+    display: block;
+    position: relative;
+  }
+
+  .musicPlayer{
+    position: absolute;
+    z-index: 1;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  .fullTab{
+    position: absolute;
+    z-index: 2;
+    right: 0;
+    top: 44%;
+  }
+
+  .mobileOpenedTab{
+    top: 0;
+  }
+}

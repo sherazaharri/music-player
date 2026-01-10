@@ -165,7 +165,7 @@
     /***   SIDEBAR CLOSED   ***/ 
     /*Song Display*/
     .tabClosedPlayer p{
-        font-size: clam(18.24px, 2vw, 21.84px);
+        font-size: clamp(18.24px, 2vw, 21.84px);
     }
 
     .tabClosedSong img{
@@ -227,8 +227,25 @@
     }
 }
 
+@media(max-width: 500px){
+    .currentSong h1 {
+        font-size: 6vw;
+    }
 
+    .volumeSlider{
+        width: 30vw;
+    }
+}
 
+@media(max-width: 500px) and (min-height: 700px){
+    .currentSong h1 {
+        font-size: 38.7px;
+    }
+
+    .volumeSlider{
+        width: 35vw;
+    }
+}
 
 
 

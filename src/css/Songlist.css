@@ -10,8 +10,8 @@
 }
 
 .playlistCollapse img{
-    width: 5vw;
-    height: 10vw;
+    width: clamp(46.4px, 5vw, 64.6px);
+    height: clamp(92.8px, 10vw, 129.1px);
 }
 
 .fullList{
@@ -56,3 +56,47 @@
     font-size: 1vw;
     text-align: left;
 }
+
+@media(max-width: 700px){
+    .fullList{
+        width: 90vw;
+    }
+
+    .playlistHead{
+        font-size: 3vw;
+    }
+
+    .songImage img{
+        width: 13vw;
+        height: 13vw;
+    }
+
+    .songInfo{
+        font-size: 2vw;
+        text-align: left;
+    }
+}
+
+@media(max-width:500px){
+    .fullList{
+        width: 80vw; /*280px*/
+    }
+
+    .playlistHead{
+        font-size: 4vw;
+    }
+
+    .songImage img{
+        width: max(18vw, 70px);
+        height: max(18vw, 70px);
+    }
+
+    .songInfo{
+        font-size: max(2vw,8px);
+        text-align: left;
+    }
+
+
+}
+
+
