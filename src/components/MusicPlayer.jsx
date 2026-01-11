@@ -123,32 +123,35 @@ function MusicPlayer() {
     }
 
     /*volume control functions*/
-    function handleVolumeChange(x){
+    function handleVolumeChange(e){
+        const value = Number(e.target.value);
         const audio = audioRef.current;
 
-        setCurrentVolume(x.target.value);
-        setTempVolume(x.target.value);
-        audio.volume = x.target.value;
+        setCurrentVolume(value);
+        audio.volume = value;
+
+        if (value === 0) {
+            setTempVolume(0.5);
+        } else {
+            setTempVolume(value);
+        }
     }
 
-    function changeIsPlaying(){ /*set state placed seperately to avoid asynchronous updates */
-        setIsMute(prev => !prev);
-    }
-
-    useEffect(() => { /*handles muting and unmuting the audio*/
+    function toggleMute() {
         const audio = audioRef.current;
-        
-        
-        if(isMute == true){
-            setCurrentVolume(0.0);
-            audio.volume = 0.0;
-            setMuteButton(mute);
-        }else{
+
+        if (currentVolume > 0) {
+            setCurrentVolume(0);
+            audio.volume = 0;
+        } else {
             setCurrentVolume(tempVolume);
             audio.volume = tempVolume;
-            setMuteButton(volume);
         }
-    }, [isMute])
+    }
+
+    useEffect(() => {
+        setMuteButton(currentVolume === 0 ? mute : volume);
+    }, [currentVolume]);
 
     return(
         <div className={'musicPlayer ' + (!isOpen ? 'tabClosedPlayer' : '')}>
@@ -179,7 +182,7 @@ function MusicPlayer() {
             </div>
             
             <div className={'volumeControl ' + (!isOpen ? 'tabClosedVolume' : '')}>
-                <button onClick={changeIsPlaying}>
+                <button onClick={toggleMute}>
                     <img src={muteButton} className={'controlButton ' + (!isOpen ? 'tabClosedButtonControl' : '')}></img>
                 </button>
                 <input className={'volumeSlider ' + (!isOpen ? 'tabClosedVolumeSlider' : '')} type='range' min='0.0' max='1.0' step='0.05' value={currentVolume} onChange={handleVolumeChange}/>

@@ -12,7 +12,7 @@ export const SidebarCollapseContext = createContext();
 
 function Root(){
   const [songIndex, setSongIndex] = useState(0);
-  const [isOpen, setIsOpen] = useState(true);
+  const [isOpen, setIsOpen] = useState(false);
   const screenRef = useRef(null);
 
   return(
