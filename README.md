@@ -1,16 +1,62 @@
-# React + Vite
+#### Access the site here!
+https://sherazasmusicplayer.netlify.app/
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+# Sheraza's Music Player
+**A fully responsive, React-based personal music player!** 
+This project was made with the purpose of deepening my understanding of React, state management, and responsive UI design while creating a polished, real-world application.
 
-Currently, two official plugins are available:
+## 🛠️ Techonologies
+- **React** (Functional Components)
+- **JavaScript**
+- **HTML**
+- **CSS**
+  * Flexbox
+  * Media Queries
+* **Netlify** (Deployment)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## ✨ Features
+- **Music Player**
+  - Displays current song information
+  - Interactive progress bar with realtime updates
+  - Playback Controls: Previous, Next, Play, and Pause buttons
+  - Adjustable volume slider alongside a mute button
 
-## React Compiler
+- **Playlist Sidebar**
+  - Full list displaying all of the available songs
+  - Click-to-play song selection
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- **A Fully responsive site, compatible with any type of device**
 
-## Expanding the ESLint configuration
+## 📚 What I Learned
+- **React Hooks and when to use them**
+    - `useState()` for state management
+    - `useEffect()` for syncing UI with playback state
+    - `useContext()` for sharing state across components
+    - `useRef()` for audio and DOM control
+ 
+- **Data Rendering**
+  - Converted a JavaScript file containing an array of song objects into dynamically rendered and  fully interactable buttons as seen on the playlist sidebar
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- **HTML DOM's and Media Handling**
+  - Gained a hands-on experience with HTML audio elements and DOM properties
+  - Controlled playback, timing, volume, and progress programmatically
+
+- **Layout and Styling**
+  - Deepened understanding of CSS Flexbox through creating a complex layout
+  - Used the Position property, like relative and absolute, to implement the overlapping sidebar for smaller screens
+
+- **Responsive Design**
+  - Created a multitude of media queries to ensure a smooth experience for all devices
+
+- **JavaScript Practice**
+  - Strengthened core JavaScript skills through extensive problem solving and event handling
+
+## Future Improvements
+A list of features I want to implement in the future
+- **Sidebar opening and closing animation**
+- **Making the progress bar fill up, similar to a loading bar**
+- **The ability to add new songs by uploading files to the site**
+
+### 🙌 Thank you for taking the time to look through this project of mine. Feel free to look through the code, try out the site, and comment any feedback or features I should add!
+
+
